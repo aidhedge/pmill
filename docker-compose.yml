@@ -1,0 +1,17 @@
+
+version: '3'
+networks:
+  backend:
+    driver: "bridge"
+
+services:
+    papermill:
+        restart: always
+        build: .
+        command: "python run.py"
+        ports:
+            - "4830:4830"
+        networks:
+            - backend
+            
+        
