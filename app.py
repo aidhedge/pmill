@@ -42,9 +42,9 @@ def simulate():
 
 if __name__ == "__main__":
     # port = int(os.environ.get('PORT'))
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)
 
-
+@app.route("/write", methods=['GET'])
 def writeToRedis():
     r = redis.StrictRedis(host='redis', port=6379, db=0)
     r.set('foo', 'bar')
