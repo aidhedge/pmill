@@ -33,17 +33,17 @@ def index():
 def writeToRedis():
     r = redis.StrictRedis(host='redis', port=6379, db=0)
     r.set('foo', 'bar')
-    
+
 @app.route("/testo", methods=['GET'])
 def simulate():
-    try:
-        pm = Pmill()
-        pm.executeNotebook()
-        res = pm.getOutput()
-        return res
-    except:
-        e = sys.exc_info()[0]
-        return str(e), 500
+    # try:
+    pm = Pmill()
+    pm.executeNotebook()
+    res = pm.getOutput()
+    return res
+    # except:
+    #     e = sys.exc_info()[0]
+    #     return str(e), 500
 
 if __name__ == "__main__":
     # port = int(os.environ.get('PORT'))
