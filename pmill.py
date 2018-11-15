@@ -10,7 +10,7 @@ class Pmill(object):
 
     def executeNotebook(self):
         pm.execute_notebook(
-        'http://127.0.0.1:8000/input.ipynb',
+        'http://127.0.0.1:5000/input.ipynb',
         './output.ipynb',
         parameters = dict(alpha=100, ratio=10),
         log_output=True,
