@@ -4,11 +4,11 @@
 curl -sSL https://get.docker.com | sh
 
 # make it so you don't need to sudo to run docker commands
-usermod -aG docker ubuntu
+sudo usermod -aG docker ubuntu
 
 # install docker-compose
-curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 # copy the dockerfile into /srv/docker 
 # if you change this, change the systemd service file to match

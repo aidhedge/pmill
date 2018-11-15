@@ -103,3 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 .vscode
+ec2-micro-test.pem
+ec2-micro-test.pem
+connect.sh
