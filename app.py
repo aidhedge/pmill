@@ -33,6 +33,7 @@ def index():
 def writeToRedis():
     r = redis.StrictRedis(host='redis', port=6379, db=0)
     r.set('foo', 'bar')
+    return "written"
 
 @app.route("/testo", methods=['GET'])
 def simulate():
