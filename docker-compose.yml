@@ -6,6 +6,8 @@ services:
         restart: always
         build: .
         command: "python app.py"
+        env_file:
+            - .env-file
         ports:
             - "5000:5000"
         networks:
