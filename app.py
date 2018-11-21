@@ -38,7 +38,10 @@ def writeToRedis():
 @app.route("/testo", methods=['GET'])
 def simulate():
     # try:
-    pm = Pmill()
+    pm = Pmill(
+        parameters=dict(alpha=100, ratio=10),
+        nbInputFileName='input'
+    )
     pm.executeNotebook()
     res = pm.getOutput()
     return res

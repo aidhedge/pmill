@@ -1,18 +1,21 @@
 import papermill as pm
 import json
+import uuid
 
 class Pmill(object):
 
-    def __init__(self, nbInputUrl=None, parameters=None):
-        self.nbInputUrl = nbInputUrl
+    def __init__(self, nbInputFileName=None, parameters=None):
         self.result = list()
+        self.uuid = '{}-{}'.format(nbInputFileName, str(uuid.uuid1()))
+        self.parameters = parameters
+        self.nbInputFileName = nbInputFileName
         # self.nb_data = None
 
     def executeNotebook(self):
         pm.execute_notebook(
-        './input.ipynb',
-        './output.ipynb',
-        parameters = dict(alpha=100, ratio=10),
+        's3://ah-papermill/input/'+self.nbInputFileName+'.ipynb',
+        's3://ah-papermill/output/'+self.uuid+'.ipynb',
+        parameters = self.parameters,
         log_output=True,
         progress_bar=True,
         report_mode=False
