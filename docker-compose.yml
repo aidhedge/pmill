@@ -5,22 +5,13 @@ services:
     papermill:
         restart: always
         build: .
-        command: "python app.py"
+        command: "gunicorn app:app --bind 0.0.0.0:5000 --reload --log-level=DEBUG"
         env_file:
             - .env-file
         ports:
             - "5000:5000"
         networks:
             - netto
-
-    redis:
-        image: redis:alpine
-        command: ["redis-server", "--appendonly", "yes"]
-        hostname: redis
-        networks:
-        - netto
-        volumes:
-        - redis-data:/data
 
 networks:
   netto:

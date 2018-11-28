@@ -106,3 +106,4 @@ venv.bak/
 ec2-micro-test.pem
 ec2-micro-test.pem
 connect.sh
+.env-file
