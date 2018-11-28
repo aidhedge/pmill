@@ -51,9 +51,9 @@ def index():
 
 @app.route("/get-parameters", methods=['GET'])
 def getParametersFromNotebook():
-   
+    nbName = request.args.get('notebook')
     pm = Pmill(
-        nbInputFileName='input'
+        nbInputFileName=nbName
     )
     res = pm.getParameters()
     return res
